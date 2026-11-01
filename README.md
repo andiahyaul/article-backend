@@ -37,3 +37,13 @@ Catatan:
 - `GET /article/{limit}/{offset}` menerima `?status=` untuk filter, dan mengirim total baris di header `X-Total-Count`. Dipakai frontend untuk tab dan pagination.
 
 Postman collection: `postman/article-api.postman_collection.json`.
+
+## Deploy
+
+Ada `Dockerfile`. Di Render: New Web Service, pilih repo ini, runtime Docker. Set env `DB_DSN`, contoh untuk database yang mewajibkan TLS (TiDB Cloud, Aiven):
+
+```
+user:password@tcp(host:4000)/article?parseTime=true&tls=true
+```
+
+Port dibaca dari env `PORT`. Migrasi jalan otomatis saat start.

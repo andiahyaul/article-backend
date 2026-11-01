@@ -11,7 +11,7 @@ type Config struct {
 func Load() Config {
 	return Config{
 		DSN:            get("DB_DSN", "root:root@tcp(127.0.0.1:3307)/article?parseTime=true&multiStatements=true"),
-		Addr:           get("ADDR", ":8080"),
+		Addr:           addr(),
 		MigrationsPath: get("MIGRATIONS_PATH", "file://migrations"),
 	}
 }
@@ -21,4 +21,12 @@ func get(k, def string) string {
 		return v
 	}
 	return def
+}
+
+// addr honors PORT (set by Render and similar hosts) before ADDR.
+func addr() string {
+	if p := os.Getenv("PORT"); p != "" {
+		return ":" + p
+	}
+	return get("ADDR", ":8080")
 }
