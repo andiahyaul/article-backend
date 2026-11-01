@@ -1,0 +1,286 @@
+{
+  "info": {
+    "name": "Article API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Create article",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Membuat REST API artikel dengan Go dan MySQL\",\n  \"content\": \"Go punya net/http yang sudah cukup untuk membuat REST API sederhana tanpa framework. Cukup tambahkan driver MySQL, buat tabel lewat migrasi, lalu pisahkan handler dan repository supaya mudah dites. Validasi input sebaiknya dilakukan sebelum data menyentuh database.\",\n  \"category\": \"Programming\",\n  \"status\": \"publish\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "List articles",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/10/0",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article",
+            "10",
+            "0"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List articles by status",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/10/0?status=draft",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article",
+            "10",
+            "0"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "draft"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get article",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update article (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article",
+            "1"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Membuat REST API artikel dengan Go dan MySQL (revisi)\",\n  \"content\": \"Go punya net/http yang sudah cukup untuk membuat REST API sederhana tanpa framework. Cukup tambahkan driver MySQL, buat tabel lewat migrasi, lalu pisahkan handler dan repository supaya mudah dites. Validasi input sebaiknya dilakukan sebelum data menyentuh database.\",\n  \"category\": \"Programming\",\n  \"status\": \"draft\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Update article (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article",
+            "1"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Membuat REST API artikel dengan Go dan MySQL\",\n  \"content\": \"Go punya net/http yang sudah cukup untuk membuat REST API sederhana tanpa framework. Cukup tambahkan driver MySQL, buat tabel lewat migrasi, lalu pisahkan handler dan repository supaya mudah dites. Validasi input sebaiknya dilakukan sebelum data menyentuh database.\",\n  \"category\": \"Programming\",\n  \"status\": \"publish\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Update article (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article",
+            "1"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Membuat REST API artikel dengan Go dan MySQL\",\n  \"content\": \"Go punya net/http yang sudah cukup untuk membuat REST API sederhana tanpa framework. Cukup tambahkan driver MySQL, buat tabel lewat migrasi, lalu pisahkan handler dan repository supaya mudah dites. Validasi input sebaiknya dilakukan sebelum data menyentuh database.\",\n  \"category\": \"Programming\",\n  \"status\": \"thrash\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete article (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete article (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/1/delete",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article",
+            "1",
+            "delete"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create article, invalid",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/article/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "article"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"x\",\n  \"content\": \"y\",\n  \"category\": \"a\",\n  \"status\": \"bad\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

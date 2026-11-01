@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS posts (
+    id           INT          NOT NULL AUTO_INCREMENT,
+    title        VARCHAR(200) NOT NULL,
+    content      TEXT         NOT NULL,
+    category     VARCHAR(100) NOT NULL,
+    created_date TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    status       VARCHAR(100) NOT NULL COMMENT 'publish | draft | thrash',
+    PRIMARY KEY (id),
+    KEY idx_posts_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
